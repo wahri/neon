@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Neon</title>
+  </head>
+
+  <style>
+    body {
+      background: #1d003b;
+    }
+
+    .header {
+      cursor: pointer;
+    }
+
+    .glowingrod {
+      background: #fff;
+      width: 30px;
+      height: 90vh;
+      position: absolute;
+      top: 50%;
+      left: 70px;
+      -ms-transform: translateY(-50%);
+      transform: translateY(-50%);
+      z-index: -999;
+      -webkit-transition: all 0.5s;
+      -moz-transition: all 0.5s;
+      transition: all 0.5s;
+      -webkit-animation: neon2 1s ease infinite alternate;
+      -moz-animation: neon2 1s ease infinite alternate;
+      border-radius: 100px;
+      animation: neon2 1s ease infinite alternate;
+      animation-delay: 1s;
+    }
+
+    .col {
+      position: absolute;
+      font-size: 3rem;
+      font-weight: bold;
+      color: white;
+      top: 50%;
+      left: 40%;
+      transform: translate(-50%, -50%);
+    }
+
+    .glowingrod:hover,
+    .glowingrod:focus {
+      background: #fff;
+    }
+
+    @-webkit-keyframes neon2 {
+      from {
+        box-shadow: 0 0 100px #228dff, 0 0 200px #228dff, 0 0 30px #228dff,
+          0 0 400px #33006b, 0 0 700px #33006b, 0 0 80px #228dff,
+          0 0 300px #228dff, 0 0 250px #33006b;
+      }
+      to {
+        box-shadow: 0 0 5px #228dff, 0 0 10px #228dff, 0 0 15px #228dff,
+          0 0 350px #33006b, 0 0 350px #33006b, 0 0 40px #228dff,
+          0 0 500px #33006b, 0 0 750px #33006b;
+      }
+    }
+
+    #hidden{
+      color: #1d003b;
+      z-index: 9999;
+    }
+  </style>
+
+  <body>
+    <div class="header">
+      <div class="col">
+        WE WILL SHOW <br />YOUR <span id="hidden">HIDDEN</span> <br />TALENTS
+      </div>
+      <div class="glowingrod"></div>
+    </div>
+
+    <script>
+      var container = document.querySelectorAll(".glowingrod"),
+        i;
+      document.addEventListener("mousemove", function (e) {
+        var x = e.clientX;
+        var y = e.clientY;
+        for (i = 0; i < container.length; ++i) {
+          container[i].style.left = x + "px";
+        }
+      });
+    </script>
+  </body>
+</html>
